@@ -1,7 +1,7 @@
 //
-//  VKApiCaptcha.h
+//  VKAuthorizationResult.h
 //
-//  Copyright (c) 2014 VK.com
+//  Copyright (c) 2015 VK.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of
 //  this software and associated documentation files (the "Software"), to deal in
@@ -20,15 +20,11 @@
 //  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "VKApiBase.h"
+#import "VKAccessToken.h"
+#import "VKError.h"
 
-/**
-Methods for captcha work. Currently, it is 1 method for forcing captcha response
-*/
-@interface VKApiCaptcha : VKApiBase
-/**
-Returns error for captcha debugging
-@return Request to load
-*/
-- (VKRequest *)force;
+@interface VKAuthorizationResult : VKObject
+@property(nonatomic, strong) VKAccessToken *token;
+@property(nonatomic, strong) VKUser *user;
+@property(nonatomic, strong) NSError *error;
 @end
